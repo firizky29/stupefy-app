@@ -3,12 +3,14 @@
 require_once __DIR__ . '/create_table_users.php';
 require_once __DIR__ . '/create_table_albums.php';
 require_once __DIR__ . '/create_table_songs.php';
+require_once __DIR__ . '/create_table_subscriptions.php';
 require_once __DIR__ . '/../../config/constants.php';
 
 function create_tables(){
     create_table_users();
     create_table_albums();
     create_table_songs();
+    create_table_subscriptions();
 }
 
 create_tables()
