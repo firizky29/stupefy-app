@@ -1,1 +1,1 @@
-docker build -t stupefy-web:latest .
+docker build -t stupefy-app:latest .

@@ -38,9 +38,9 @@ Stupefy merupakan perangkat lunak berbasis web yang memiliki fungsionalitas untu
    ```
    docker exec {nama container server} -it //bin//bash ./scripts/run-migration.sh
    ```
-   defaultnya, nama container server dari web ini adalah ```stupefy-web-server-1```, namun Anda bisa melihat nama container server yang dijalankan menggunakan ```docker container ls```. Secara default, untuk melakukan migrasi dapat menjalankan perintah berikut ini.
+   defaultnya, nama container server dari web ini adalah ```stupefy-app-server-1```, namun Anda bisa melihat nama container server yang dijalankan menggunakan ```docker container ls```. Secara default, untuk melakukan migrasi dapat menjalankan perintah berikut ini.
    ```
-   docker exec stupefy-web-server-1 -it //bin//bash ./scripts/run-migration.sh
+   docker exec stupefy-app-server-1 -it //bin//bash ./scripts/run-migration.sh
    ```
 4. Jika ingin mempopulasi basis data, Anda dapat menggunakan perintah berikut ini.
    ```
@@ -48,7 +48,7 @@ Stupefy merupakan perangkat lunak berbasis web yang memiliki fungsionalitas untu
    ```
    atau secara default
    ```
-   docker exec stupefy-web-server-1 -it //bin//bash ./scripts/run-seed.sh
+   docker exec stupefy-app-server-1 -it //bin//bash ./scripts/run-seed.sh
    ```
 5. Hasil seeder memberikan sebuah akun Admin dengan username = `admin` dan password = `admin`. 
 6. Jalankan web pada `localhost:8080`.
