@@ -68,6 +68,7 @@
 
     }
 
+    $body = str_replace('{{ control }}', '', $body);
     $body = str_replace('{{ nav }}', $nav, $body);
     $body = str_replace('{{ sidebar }}', $sidebar, $body);
 

@@ -69,6 +69,9 @@
         $body = str_replace('{{ duration }}', $duration_hour . $hours . $duration_min . $mins . $duration_secs . $secs, $body);
     }
 
+
+    
+    $body = str_replace('{{ control }}', '', $body);
     $body = str_replace('{{ nav }}', $nav, $body);
     $body = str_replace('{{ sidebar }}', $sidebar, $body);
     
