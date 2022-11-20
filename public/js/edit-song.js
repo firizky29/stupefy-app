@@ -21,7 +21,7 @@ function toggleSideBar(){
     sidebarActive.classList.remove("active");
     sidebarActive.children[0].src = "/public/img/icons-"+sidebarActive.id +"-grey.png";
 
-    let sidebar = document.getElementById("add-album");
+    let sidebar = document.getElementById("home");
     sidebar.classList.add("active");
     sidebar.children[0].src = "/public/img/icons-"+sidebar.id +".png";
 }

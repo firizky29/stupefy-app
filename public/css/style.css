@@ -180,6 +180,11 @@ input:-webkit-autofill:active{
     padding: 0;
 }
 
+
+.logo-img{
+    height: 80px;
+    padding-left: 20px;
+}
 .sidebar a{
     color: #CCCCCC;
     text-decoration: none;
@@ -360,19 +365,19 @@ a .sidebar-icon{
         /* display: none; */
     }
 
-    .close-btn{
+    button.close-btn{
         display: block;
         margin-left: auto !important;
-        margin-right: 5px;
-        margin-top: 5px;
+        margin-right: 6px;
+        margin-top: 6px;
         background-color: #161616;
         color: white;
         font-family: 'Inter';
         font-size: large;
-        padding: 5px 10px;
         border-radius: 8px;
+        padding: 8px 12px;
     }
-
+    
     li.close-btn{
         display: flex;
         flex-direction: column;

@@ -55,6 +55,7 @@ audio{
     line-height: 22px;
     padding-top: 14px;
     white-space: nowrap;
+    margin-left: 20px;
 }
 
 .check-album-button-disabled {
@@ -72,6 +73,7 @@ audio{
     line-height: 22px;
     padding-top: 14px;
     white-space: nowrap;
+    margin-left: 20px;
 }
 
 .check-album-button:hover{
@@ -83,9 +85,11 @@ audio{
     flex: auto;
 }
 .song-image{
-    aspect-ratio: 1;
-    height: 50px;
-    margin: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+    /* object-fit: cover; */
 }
 
 .control-container img{

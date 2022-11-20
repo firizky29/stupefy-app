@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="css/login-reg.css" />
     <link rel="stylesheet" href="css/form.css" />
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
+    <link rel="icon" href="public/img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="public/img/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
     <div id="container">
@@ -51,7 +52,7 @@
                 </form>
                     <button id="signup-button">Sign Up</button>
             </div>
-            <label class="to-login">Have an account? <a href="login.php">Log in</a></label>
+            <label class="to-login">Already have an account? <a href="login.php">Sign in</a></label>
         </div>
     </div>
 </body>
