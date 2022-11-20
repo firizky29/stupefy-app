@@ -50,8 +50,17 @@ body {
 }
 
 .control-container img{
+    display: inline;
     aspect-ratio: 1;
     width: 30px;
+}
+
+.control-container{
+    /* background-color: red; */
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
 .edit:hover {

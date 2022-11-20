@@ -27,6 +27,12 @@
     
     $nav = file_get_contents('./html/template/authorized-navbar.html');
     $sidebar = file_get_contents('./html/template/user-sidebar.html');
+    $control = <<<"EOT"
+        <div class="control-container">
+            <img src="/public/img/icons-edit-grey.png" class="edit" onclick="editAlbum();"/>
+            <img src="/public/img/icons-delete.png" class="delete" onclick="deleteAlbum();"/>
+        </div>
+    EOT;
     
     $body = file_get_contents('./html/detail-album.html');
     
@@ -36,6 +42,7 @@
         $role = 'User';
         if($user['isAdmin']){
             $sidebar = file_get_contents('./html/template/admin-sidebar.html');
+            $body = str_replace('{{ control }}', $control, $body);
             $role = 'Admin';
         }
         $nav = str_replace('{{ user }}', $user['username'], $nav);

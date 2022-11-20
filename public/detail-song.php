@@ -6,6 +6,14 @@
 
     require_once __DIR__ . '/../app/controllers/AuthController.php';
     require_once __DIR__ . '/../app/controllers/DetailedSongController.php';
+
+
+    $control = <<<"EOT"
+        <div class="control-container">
+            <img src="/public/img/icons-edit-grey.png" class="edit" onclick="editSong();"/>
+            <img src="/public/img/icons-delete.png" class="delete" onclick="deleteSong();"/>
+        </div>
+    EOT;
     
     $nav = file_get_contents('./html/template/authorized-navbar.html');
     $sidebar = file_get_contents('./html/template/user-sidebar.html');
@@ -18,6 +26,7 @@
         $role = 'User';
         if($user['isAdmin']){
             $sidebar = file_get_contents('./html/template/admin-sidebar.html');
+            $body = str_replace('{{ control }}', $control, $body);
             $role = 'Admin';
         }
         $nav = str_replace('{{ user }}', $user['username'], $nav);

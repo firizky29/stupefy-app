@@ -400,6 +400,10 @@ a .sidebar-icon{
         cursor: pointer;
     }
 
+    .table-frame{
+        overflow-x:auto;
+    }
+
 }
 
 .dropdown-items{

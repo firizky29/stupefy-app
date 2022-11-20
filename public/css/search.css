@@ -15,19 +15,32 @@ select {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
 }
 
 .sort {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-grow: 1;
 }
 
 .filter {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-grow: 1;
 }
+
+#filter-select{
+    flex-grow: 1;
+}
+
+#sort-select{
+    flex-grow: 1;
+}
+
 
 .sort label {
     display: block;

@@ -93,6 +93,14 @@ audio{
     width: 30px;
 }
 
+.control-container{
+    /* background-color: red; */
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
 .edit:hover {
     cursor: pointer;
 }
