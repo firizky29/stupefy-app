@@ -1,12 +1,15 @@
 <header>
     <nav>
         <div class="nav-content">
+            <button class="open-btn" onclick="openNav()">
+                <span>&#9776;</span>
+            </button>
             <div class="search-bar">
                 <form action="/public/search.php">
                     <div class="search-img-container">
                         <img src="./img/icons-search.png" class="search-img">
                     </div>
-                    <input id="search-input" type="text" placeholder="Search for songs..." name="search"">
+                    <input id="search-input" type="text" placeholder="Search for songs..." name="search">
                 </form>
             </div>
             <div class="user-info">
@@ -15,8 +18,24 @@
                     <span class="user-role">{{ role }}</span>
                 </div>
             </div>
-                <a class="logout" name="logout" onclick = logout(event)> Log out </a>
+            <a class="logout" name="logout" onclick=logout(event)> Log out </a>
+            <div class="profile" onclick="toggleDropdown()">
+                <span class="user-name">{{ user }}
+                    <i class="arrow"></i>
+                </span>
+            </div>
         </div>
     </nav>
 
+
 </header>
+
+<div class="dropdown-items">
+    <div class="dropdown-item">
+        <span class="user-name">{{ user }} ({{ role }})</span>
+    </div>
+    <hr>
+    <div class="dropdown-item" id="logout-dropdown">
+        <a onclick=logout(event)>Logout</a>
+    </div>
+</div>

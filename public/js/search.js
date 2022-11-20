@@ -299,3 +299,26 @@ logout.addEventListener("click", function() {
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.send(formData);    
 });
+
+
+function openNav(){
+    document.getElementsByClassName("sidebar")[0].classList.add("active");
+
+}
+
+function closeNav(){
+    document.getElementsByClassName("sidebar")[0].classList.remove("active");
+}
+
+function toggleDropdown(){
+    document.getElementsByClassName("dropdown-items")[0].classList.toggle("active");
+    var arrow = document.getElementsByClassName("arrow")[0];
+    if(arrow.style.transform === "rotate(-135deg)"){
+        arrow.style.transform = "rotate(45deg)";
+        // arrow.style.-webkit-transform = "rotate(-135deg)";
+    } else{
+        arrow.style.transform = "rotate(-135deg)";
+        // arrow.style.-webkit-transform = "rotate(45deg)";
+    }
+    // document.getElementsByClassName("arrow")[0].style.-webkit-transform = "rotate(135deg)";
+}

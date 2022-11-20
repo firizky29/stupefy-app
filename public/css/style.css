@@ -90,7 +90,7 @@ input:-webkit-autofill:active{
 
 .search-bar .search-img-container img{
     height: 100%;
-    width: 100%;
+    
 }
 
 
@@ -102,6 +102,7 @@ input:-webkit-autofill:active{
     font-weight: 500;
     font-size: 17px;
     line-height: 27px;
+    white-space: nowrap;
 }
 
 .nav-content .login{
@@ -116,6 +117,7 @@ input:-webkit-autofill:active{
     padding: 12px 20px;
     border-radius: 100px 100px 100px 100px;
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 .nav-content .user-info{
@@ -314,4 +316,217 @@ a .sidebar-icon{
 .page-item .active {
     cursor: pointer;
 }
+
+.close-btn{
+    display: none;
+}
+
+.open-btn{
+    display: none;
+}
+  
+@media only screen and (max-width: 1280px) {
+    .side-container{
+        width: auto;
+        /* padding-left: 60px; */
+        padding-left: 20px;
+        margin-right: 0;
+    }
+
+    nav{
+        width: 100%;
+        padding: 0px 20px 0px 0px;
+    }
+
+    .nav-content .user-info{
+        width: 230px ;
+    }
+
+    .sidebar{
+        display: none;
+        transition: all 7ms ease-in-out;
+    }
+
+    .sidebar.active{
+        display: block;
+        width: 320px;
+        /* background-color: red; */
+        border-right: #161616 1px solid;
+        position: absolute;
+        z-index: 1;
+        top:0;
+        left:0;
+        transition: all 200ms ease-in-out;
+        /* display: none; */
+    }
+
+    .close-btn{
+        display: block;
+        margin-left: auto !important;
+        margin-right: 5px;
+        margin-top: 5px;
+        background-color: #161616;
+        color: white;
+        font-family: 'Inter';
+        font-size: large;
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
+
+    li.close-btn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+        
+    }
+
+    .open-btn{
+        display: block;
+        background-color: #161616;
+        color: white;
+        font-size: large;
+        margin: 0 20px 0 0;
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
+
+    .open-btn:hover{
+        cursor: pointer;
+    }
+
+    .close-btn:hover{
+        cursor: pointer;
+    }
+
+}
+
+.dropdown-items{
+    display: none;
+    transition: 2s;
+}
+
+.profile{
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 800px){
+
+    .dropdown-items{
+        display: none;
+    }
+
+    .dropdown-items.active {
+        display: block;
+        position: absolute;
+        background-color: #161616;
+        z-index: 1;
+        right: 20px;
+        top: 80px;
+        width: 320px;
+        border-radius:20px 0 20px 20px;
+        border:rgba(197, 197, 197, 0.1) 0.2px solid;
+    }
+    
+    .dropdown-items .dropdown-item {
+        /* background-color: #161616; */
+        color: white;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 16px;
+        line-height: 30px;
+        padding: 10px 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        text-decoration: none;
+        /* border-radius: 200px; */
+    }
+    
+    .dropdown-items hr {
+        border: 1px solid rgba(197, 197, 197, 0.1);
+    }
+    .dropdown-item a{
+        text-decoration: none;
+        color: #CC1F1F;
+        font-family: 'Inter';
+        font-style: bold;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    
+    #logout-dropdown{
+        border-radius:0px 0px 20px 20px;    
+    }
+    #logout-dropdown:hover {
+        background-color: #404040;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .profile{
+        color: white;
+        white-space: nowrap;
+        background-color: #161616;
+        height: 52px;
+        border-radius: 100px 100px 100px 100px;
+        /* padding: 5px 20px; */
+        margin: 0 0 0 20px;
+        /* width:200px; */
+        text-align: center;
+        vertical-align: middle;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 30px;
+    
+        text-decoration: none;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 24px;
+        color: white;
+    }
+    
+    .profile:hover{
+        background-color: #404040;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .arrow {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-left: 5px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transition: 200ms ease-in-out;
+    }
+    
+
+    .logout{
+        display: none;
+    }
+
+    .user-info{
+        display: none;
+    }
+
+    #sign-up{
+        display: none;
+    }
+
+    .login{
+        margin-left: 15px;
+    }
+}
+
 
