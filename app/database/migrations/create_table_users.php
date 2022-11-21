@@ -9,7 +9,7 @@ function create_table_users(){
         user_id INT NOT NULL AUTO_INCREMENT,
         email VARCHAR(256) NOT NULL UNIQUE,
         password VARCHAR(256) NOT NULL,
-        username VARCHAR(64) NOT NULL,
+        username VARCHAR(64) NOT NULL UNIQUE,
         name VARCHAR(256) NOT NULL,
         isAdmin BOOLEAN NOT NULL,
         last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
