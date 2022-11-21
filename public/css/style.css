@@ -357,11 +357,14 @@ a .sidebar-icon{
         width: 320px;
         /* background-color: red; */
         border-right: #161616 1px solid;
-        position: absolute;
+        position: fixed;
         z-index: 1;
         top:0;
         left:0;
+        bottom:0;
         transition: all 200ms ease-in-out;
+        position: fixed;
+        height: 100%;
         /* display: none; */
     }
 
@@ -426,18 +429,23 @@ a .sidebar-icon{
 
     .dropdown-items{
         display: none;
+        position: fixed;
+        right: 20px;
+        top: 80px;
     }
 
     .dropdown-items.active {
         display: block;
-        position: absolute;
+        position: fixed;
         background-color: #161616;
         z-index: 1;
+        /* position: sticky; */
         right: 20px;
         top: 80px;
         width: 320px;
         border-radius:20px 0 20px 20px;
         border:rgba(197, 197, 197, 0.1) 0.2px solid;
+        /* background-color: #1DB954; */
     }
     
     .dropdown-items .dropdown-item {
