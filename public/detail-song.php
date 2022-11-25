@@ -44,7 +44,7 @@
         $duration_hour = intdiv($song_information['song-duration'],3600);
         $hours = ($duration_hour === 1) ? ' hour ' : ' hours ';
         $duration_min = intdiv($song_information['song-duration'],60)%60;
-        $mins = ($duration_mins === 1) ? ' minute ' : ' minutes ';
+        $mins = ($duration_min === 1) ? ' minute ' : ' minutes ';
         $duration_secs = $song_information['song-duration']%60;
         $secs = ($duration_secs === 1) ? ' second' : ' seconds';
         $body = str_replace('{{ song-title }}', $song_information['song-title'], $body);

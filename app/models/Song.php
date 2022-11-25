@@ -222,15 +222,16 @@ class Song{
         }
     }
 
-    public function updateSong($songName, $songArtist, $songReleaseDate, $songGenre, $songId, $thumbnail_path){
+    public function updateSong($songName, $songArtist, $songReleaseDate, $songGenre, $songId, $thumbnail_path, $song_path){
         if(isset($thumbnail_path)){
-            $this->db->prepare("UPDATE $this->table SET Judul = :songName, Penyanyi = :songArtist, Tanggal_terbit = :songReleaseDate, Genre = :songGenre, Image_path = :thumbnail_path WHERE song_id = :id");
+            $this->db->prepare("UPDATE $this->table SET Judul = :songName, Penyanyi = :songArtist, Tanggal_terbit = :songReleaseDate, Genre = :songGenre, Image_path = :thumbnail_path, Audio_path = :song_path WHERE song_id = :id");
             $this->db->bind(':songName', $songName);
             $this->db->bind(':songArtist', $songArtist);
             $this->db->bind(':songReleaseDate', $songReleaseDate);
             $this->db->bind(':songGenre', $songGenre);
             $this->db->bind(':thumbnail_path', $thumbnail_path);
             $this->db->bind(':id', $songId);
+            $this->db->bind(':song_path', $song_path);
     
             return $this->db->execute();
         } else{

@@ -77,7 +77,7 @@ function submitform(event){
     const songID = urlParams.get('id');
     formData.append("song-id", songID);
     formData.append("song-artist", document.getElementById("song-artist").value);
-
+    formData.append("song-path", document.getElementById("song-path").value);
     formData.append("Update", true);
 
 
@@ -96,6 +96,7 @@ function submitform(event){
                 if(result['status'] === "success"){
                     alert(result['message']);
                     document.location.href = ".";
+                    console.log()
                 } else{
                     document.getElementById(result['status']).innerHTML = result['message'];
                     document.getElementById(result['status']).style.display = "block";
@@ -167,4 +168,46 @@ function get_query(){
         result[qs[i][0]] = qs[i][1];
     }
     return result;
+}
+
+function getSong(event){
+    document.getElementById("song-file").click();
+}
+
+function previewSong(event){
+    let song = document.getElementById("song-file");
+    let songPath = document.getElementById("song-path");
+    let songPreview = document.getElementById("song-preview");
+    let audio = document.getElementById("add-audio");
+
+    if(event.target.files[0].size > 10000000){
+        document.getElementById("song-file-error").innerHTML = "Song size must be less than 10MB";
+        document.getElementById("song-file-error").style.display = "block";
+        song.value = "";
+    } else{
+        var input = event.target;
+        var reader = new FileReader();
+        reader.onload = function(){
+            var dataURL = reader.result;
+            // console.log(dataURL);
+            songPreview.src = dataURL;
+            songPath.value = event.target.files[0].name;
+            audio.load();
+            audio.play();
+        };
+
+        reader.onerror = function (error) {
+            song.value = "";
+            console.log('Error: ', error);
+        };
+
+        reader.onabort = function (error) {
+            song.value = "";
+            console.log('Error: ', error);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+
+    
 }
