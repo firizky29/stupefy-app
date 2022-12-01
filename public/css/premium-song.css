@@ -1,0 +1,33 @@
+.contents .content-id{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    text-align: center;
+    width: 10%;
+}
+
+.contents .content-name{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    width: 70%;
+}
+
+.button {
+    border-radius : 10px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.play {
+    background-color: #04a42c;
+    color : white;
+}
+
+.play:hover{
+    background-color: #0eba39;
+    color : white;
+}
