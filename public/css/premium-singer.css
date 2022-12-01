@@ -27,6 +27,11 @@
     color : white;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 .song {
     background-color: #808080;
     color : white;

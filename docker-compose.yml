@@ -9,6 +9,7 @@ services:
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     networks:
       - stupefy-network
+      - stupefy-soap-service_stupefy-network
     env_file: .env
     depends_on:
       - db
@@ -34,3 +35,6 @@ volumes:
 networks:
   stupefy-network:
     driver: bridge
+  stupefy-soap-service_stupefy-network:
+    external: true
+    
