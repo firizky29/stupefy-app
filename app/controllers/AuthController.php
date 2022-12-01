@@ -55,6 +55,36 @@ function deleteAuthCookie() {
     setcookie($cookie_name, $cookie_value, time() - COOKIE_AUTH_EXPIRE, "/");
 }
 
+function createCallbackToken($path, $creator_id, $subscriber) {
+    $token = $path . '-' . $creator_id . '-' . $subscriber;
+    $token_encoded = base64_encode($token);
+    $token_hash = hash('sha256', $token . '-' . CALLBACK_SECRET);
+    $token_token = $token_encoded . '.' . $token_hash;
+    return $token_token;
+}
+
+function isValidCallbackToken($token) {
+    $token_parts = explode('.', $token);
+    if(count($token_parts) != 2){
+        return false;
+    }
+    $token_value_encoded = $token_parts[0];
+    $token_value_hash = $token_parts[1];
+    $token_value = base64_decode($token_value_encoded);
+    if($token_value_hash !== hash('sha256', $token_value . '-' . CALLBACK_SECRET)){
+        return false;
+    }
+    $token_value_parts = explode('-', $token_value);
+    $path = $token_value_parts[0];
+    $creator_id = $token_value_parts[1];
+    $subscriber = $token_value_parts[2];
+    if(empty($path) || empty($creator_id) || empty($subscriber)) {
+        return false;
+    }
+    return array($path, $creator_id, $subscriber);
+    // gapake exp karena asumsi bisa kelola apiKey
+}
+
 if(isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
