@@ -12,7 +12,12 @@ class Subscription{
     }
 
     public function getAllAccepted(){
-        $this->db->prepare("SELECT creator_id FROM $this->table");
+        $this->db->prepare("SELECT creator_id FROM $this->table WHERE status = 'ACCEPTED'");
+        return $this->db->getAll();
+    }
+
+    public function getAllPending() {
+        $this->db->prepare("SELECT creator_id FROM $this->table WHERE status = 'PENDING'");
         return $this->db->getAll();
     }
 
@@ -24,7 +29,13 @@ class Subscription{
     }
     
     public function getAcceptedBySubscriber($id){
-        $this->db->prepare("SELECT creator_id FROM $this->table WHERE subscriber = :id");
+        $this->db->prepare("SELECT creator_id FROM $this->table WHERE subscriber = :id AND status = 'ACCEPTED'");
+        $this->db->bind(':id', $id);
+        return $this->db->getAll();
+    }
+
+    public function getPendingBySubscriber($id) {
+        $this->db->prepare("SELECT creator_id FROM $this->table WHERE subscriber = :id AND status = 'PENDING'");
         $this->db->bind(':id', $id);
         return $this->db->getAll();
     }

@@ -27,6 +27,18 @@
     color : white;
 }
 
+.sub:hover{
+    background-color: #0eba39;
+    color : white;
+    cursor: pointer;
+}
+
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 .song {
     background-color: #808080;
     color : white;

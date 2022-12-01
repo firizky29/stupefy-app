@@ -2,10 +2,19 @@
 require_once __DIR__ . '/../models/Subscription.php';
 require_once __DIR__ . '/AuthController.php';
 
-if(isset($_GET['id'])){
+if(isset($_GET['status'])){
     $subscription = new Subscription();
-    $subscription = $subscription->getAcceptedBySubscriber(intval($_GET['id']));
-    echo json_encode([$subscription]);
+    $id_user = isValidAuthCookie($_COOKIE);
+    if(!($id_user)) {
+        $id_user = -1;
+    }
+    if($_GET['status']=== 'ACCEPTED'){
+        $subs = $subscription->getAcceptedBySubscriber($id_user);
+        echo json_encode([$subs]);
+    }else if($_GET['status']=== 'PENDING'){
+        $subs = $subscription->getPendingBySubscriber($id_user);
+        echo json_encode([$subs]);
+    }
 }
 
 function putSubs($creator_id, $subscriber) {
@@ -45,8 +54,9 @@ function putSubs($creator_id, $subscriber) {
 }
 
 if(isset($_POST['subscribe'])){
-    $user_id = isValidAuthCookie($_COOKIE);
+    $id_user = isValidAuthCookie($_COOKIE);
     if($id_user){
+        // echo "yea";
         $creator_id = $_POST['creator_id'];
         $iplocal = "192.168.0.189";
         // minta ke soap
@@ -56,17 +66,18 @@ if(isset($_POST['subscribe'])){
         $callbackUrl = "http://".$iplocal.":8080/public/api/subscription/".$token;
         $params = array(
             'creator_id' => $creator_id,
-            'user_id' => $user_id,
+            'subscriber' => $id_user,
             'callbackUrl' => $callbackUrl,
-            'apiKey' => "sdfaf"
+            'apiKey' => SOAP_API_KEY
         );
         try {
+            // echo "yea";
             $response = $client->requestSubscribe($params);
             $subscription = new Subscription();
             $subscription->addPendingSubs($creator_id, $id_user);
-            echo $response;
+            echo json_encode([$response]);
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo json_encode([$e->getMessage()]);
         }
     }
 }
