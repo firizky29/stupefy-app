@@ -12,4 +12,5 @@ define('DB_USER_TABLE', 'user');
 define('DB_SONG_TABLE', 'song');
 define('DB_SUBSCRIPTION_TABLE', 'subscription');
 define('COOKIE_AUTH_EXPIRE', 86400);
+define('SOAP_API_KEY', getenv('SOAP_API_KEY'));
 ?>
