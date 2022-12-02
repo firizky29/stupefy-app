@@ -31,3 +31,64 @@
     background-color: #0eba39;
     color : white;
 }
+
+.audio{
+    width: 100%;
+    height: 50px;
+    padding: 0 0px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 25px;
+    margin-top: 30px;
+}
+
+.song-controller{
+    z-index: 4;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #161616;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    border-top: #161616 1px solid;
+  
+  }
+  #song-controller-content{
+    padding: 0;
+    margin: 20px;
+  }
+  
+  .song-info{
+    margin-left: 20px;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    width: 12%;
+  }
+  
+  .song-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .song-artist{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+  }
