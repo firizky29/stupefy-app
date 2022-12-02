@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../models/Subscription.php';
 require_once __DIR__ . '/AuthController.php';
+require_once __DIR__ . '/../config/constants.php';
 
 if(isset($_GET['status'])){
     $subscription = new Subscription();
