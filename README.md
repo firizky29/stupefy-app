@@ -155,3 +155,37 @@ password: test
 username: admin
 password: admin
 ```
+## 8. Perubahan yang Terjadi (Tugas Besar 2)
+1. Perubahan nama aplikasi menjadi *stupefy app*, sehingga
+   nama *container* di-*refactor* menjadi ```stupefy-app-server-1``` dan basis datanya menjadi ```stupefy-app-db-1```
+2. Penambahan fitur premium singer untuk melakukan subscribe pada singer yang sudah terdaftar di stupefy premium app
+3. Penambahan fitur pemutaran lagu premium
+4. Perubahan basis data, berikut adalah skema baru dari basis data yang diimplementasikan
+![Screenshot](doc/skema-basisdata.png)
+5. Berikut adalah tangkapan layar masing-masing halaman baru yang diimplementasikan
+
+    5.1. Halaman list penyanyi premium
+
+    ![Screenshot](doc/premium-singer.png)
+
+    5.2. Halaman list lagu premium
+
+    ![Screenshot](doc/premium-song.png)
+
+6. Adapun pembagian tugas tambahan untuk stupefy app adalah sebagai berikut
+
+**Server-side**
+
+| Fitur  | 13520009 | 13520095 | 13520152 |
+| --- | --- | --- | --- |
+| Integrasi REST | :white_check_mark: |  | :white_check_mark: |
+| Integrasi SOAP   | :white_check_mark: |  |  |
+
+**Client-side**
+
+| Fitur  | 13520009 | 13520095 | 13520152 |
+| --- | --- | --- | --- |
+| List Penyanyi Premium | :white_check_mark: |  | :white_check_mark: |
+| List Lagu Premium   |  | :white_check_mark: | :white_check_mark: |
+
+

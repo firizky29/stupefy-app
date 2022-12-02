@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../models/Subscription.php';
 require_once __DIR__ . '/AuthController.php';
+require_once __DIR__ . '/../config/constants.php';
 
 if(isset($_GET['status'])){
     $subscription = new Subscription();
@@ -58,12 +59,13 @@ if(isset($_POST['subscribe'])){
     if($id_user){
         // echo "yea";
         $creator_id = $_POST['creator_id'];
-        $iplocal = "192.168.0.189";
+        $iplocal = "stupefy-soap-service-server-1";
+        $iplocal2 = "stupefy-app-server-1";
         // minta ke soap
-        $wsdl = "http://".$iplocal.":3101/SubscriptionService?wsdl";
+        $wsdl = "http://".$iplocal.":8080/SubscriptionService?wsdl";
         $client = new SoapClient($wsdl, array('trace' => 1));
         $token = createCallbackToken("/public/api/subscription", $creator_id, $id_user);
-        $callbackUrl = "http://".$iplocal.":8080/public/api/subscription/".$token;
+        $callbackUrl = "http://".$iplocal2.":80/public/api/subscription/".$token;
         $params = array(
             'creator_id' => $creator_id,
             'subscriber' => $id_user,
