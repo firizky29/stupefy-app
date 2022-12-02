@@ -4,7 +4,7 @@
 
     if(strcasecmp($_SERVER['REQUEST_METHOD'], 'PUT') === 0){
         // var_dump($_SERVER['REQUEST_URI']);
-        $regex = '/\/public\/api\/subscription\/([\w\.]+)/';
+        $regex = '/\/public\/api\/subscription\/([\w\.\+=]+)/';
         $isMatch = preg_match($regex, $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE);
         if($isMatch) {
             array_shift($matches);
@@ -29,7 +29,7 @@
                 header('Content-Type: application/json');
                 echo json_encode(array(
                     "status" => "Forbidden",
-                    "data" => null,
+                    "data" => $token,
                     "message" => "Invalid token"
                 ));
             }

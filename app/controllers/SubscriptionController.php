@@ -59,10 +59,13 @@ if(isset($_POST['subscribe'])){
         // echo "yea";
         $creator_id = $_POST['creator_id'];
         $iplocal = "192.168.0.189";
+        $ip_soap = "stupefy-soap-service-server-1";
+        // $ip_app = "stupefy-app-server-1";
         // minta ke soap
-        $wsdl = "http://".$iplocal.":3101/SubscriptionService?wsdl";
+        $wsdl = "http://".$ip_soap.":8080/SubscriptionService?wsdl";
         $client = new SoapClient($wsdl, array('trace' => 1));
         $token = createCallbackToken("/public/api/subscription", $creator_id, $id_user);
+        // $callbackUrl = "http://".$ip_app.":80/public/api/subscription/".$token;
         $callbackUrl = "http://".$iplocal.":8080/public/api/subscription/".$token;
         $params = array(
             'creator_id' => $creator_id,
@@ -73,8 +76,10 @@ if(isset($_POST['subscribe'])){
         try {
             // echo "yea";
             $response = $client->requestSubscribe($params);
-            $subscription = new Subscription();
-            $subscription->addPendingSubs($creator_id, $id_user);
+            if($response->SubscribeResponse->data > 0) {
+                $subscription = new Subscription();
+                $subscription->addPendingSubs($creator_id, $id_user);
+            }
             echo json_encode([$response]);
         } catch (Exception $e) {
             echo json_encode([$e->getMessage()]);
