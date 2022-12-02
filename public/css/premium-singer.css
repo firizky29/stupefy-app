@@ -40,6 +40,12 @@
 }
 
 .song {
-    background-color: #808080;
+    background-color: #2f74ff;
     color : white;
+}
+
+.song:hover{
+    background-color: #3a8aff;
+    color : white;
+    cursor: pointer;
 }

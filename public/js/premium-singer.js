@@ -8,11 +8,14 @@ window.onload = function () {
         if (xhr_subscription.readyState == 4 && xhr_subscription.status == 200) {
             console.log(xhr_subscription.responseText);
             let result = JSON.parse(xhr_subscription.responseText);
+            // console.log("Hello1");
+            // console.log(result);
             if (result[0].length !== 0) {
                 for(let i=0; i<result[0].length; ++i){
                     subscribed_singer.add(parseInt(result[0][i]['creator_id']));
                 }
             }
+            console.log("HI:")
             console.log(subscribed_singer);
             fetchPremiumSinger1(subscribed_singer);
         }
@@ -63,9 +66,11 @@ function fetchPremiumSinger2(subscribedSinger, pendingSinger) {
             if (result[0] !== "") {
                 contents.innerHTML = "";
                 for(let i=1; i<=result.length; ++i){
-                    if(subscribedSinger.has(parseInt(result[i-1]['id']))){
+                    // console.log(result[i-1]['id']);
+                    if(subscribedSinger.has(parseInt(result[i-1]['user_id']))){
+                        console.log(result[i-1]);
                         contents.innerHTML += generateSingers(i, result[i-1], "ACCEPTED");
-                    } else if(pendingSinger.has(parseInt(result[i-1]['id']))){
+                    } else if(pendingSinger.has(parseInt(result[i-1]['user_id']))){
                         contents.innerHTML += generateSingers(i, result[i-1], "PENDING");
                     } else {
                         contents.innerHTML += generateSingers(i, result[i-1], "canSubscribe"); //rejected or nothing
@@ -111,7 +116,7 @@ function generateSingers(i, res, status){
     }
     let subscribeMethod;
     if(status==="ACCEPTED"){
-        subscribeMethod = 'getPremiumSong('+res['user_id']+')'; //TODO
+        subscribeMethod = 'getPremiumSong('+res['user_id']+')'; 
     } else {
         subscribeMethod = 'subscribe(this,'+res['user_id']+')';
     }
@@ -154,4 +159,8 @@ function subscribe(elem, creator_id) {
     xhr.open("POST", url, true);
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.send(formData);
+}
+
+function getPremiumSong(creator_id) {
+    window.location.href = "/public/premium-song.php?id=" + creator_id;
 }

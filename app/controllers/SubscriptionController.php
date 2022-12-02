@@ -59,15 +59,17 @@ if(isset($_POST['subscribe'])){
     if($id_user){
         // echo "yea";
         $creator_id = $_POST['creator_id'];
-        $iplocal = "192.168.0.189";
-        $ip_soap = "stupefy-soap-service-server-1";
+        $iplocal = APP_IP_ADDRESS;
+        $ip_soap = SOAP_IP_ADDRESS;
+        $portlocal = APP_PORT;
+        $port_soap = SOAP_PORT;
         // $ip_app = "stupefy-app-server-1";
         // minta ke soap
-        $wsdl = "http://".$ip_soap.":8080/SubscriptionService?wsdl";
+        $wsdl = "http://".$ip_soap.":".$port_soap."/SubscriptionService?wsdl";
         $client = new SoapClient($wsdl, array('trace' => 1));
         $token = createCallbackToken("/public/api/subscription", $creator_id, $id_user);
         // $callbackUrl = "http://".$ip_app.":80/public/api/subscription/".$token;
-        $callbackUrl = "http://".$iplocal.":8080/public/api/subscription/".$token;
+        $callbackUrl = "http://".$iplocal.":".$portlocal."/public/api/subscription/".$token;
         $params = array(
             'creator_id' => $creator_id,
             'subscriber' => $id_user,
