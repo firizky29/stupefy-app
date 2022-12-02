@@ -33,7 +33,7 @@ window.onload = function () {
         }
     }
 
-    url = "http://localhost:3100/api/v1/singer/song/"+singerId;
+    url = "http://localhost:3100/api/v1/singer/"+singerId+"/song/";
     xhr.open("GET", url, true);
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.send();
@@ -65,7 +65,15 @@ window.onload = function () {
     xhr2.send();
 }
 
-function generateSongs(i, res, isSubscribed) {
+function playSong(id, judul){
+    let song_title = document.getElementsByClassName('song-title');
+    let audio = document.getElementsByClassName('audio');
+    audio[0].src = "http://localhost:3100/api/v1/singer/song/" + id;
+    song_title[0].innerHTML = judul;
+    console.log('played ' + judul);
+}
+
+function generateSongs(i, res) {
     let s = `<tbody class="content-entry">
     <tr>
         <td class = 'content-id'> 
@@ -75,11 +83,11 @@ function generateSongs(i, res, isSubscribed) {
             ${res['Judul']}
         </td>
         <td class = 'content-subs'>
-            <div class = 'button play'>
+            <div class = 'button play' onclick="playSong(${res['song_id']}, '${res['Judul']}');">
                 Play
             </div>
         </td>
     </tr>
-</tbody>`
+</tbody>`;
     return s;
 }
